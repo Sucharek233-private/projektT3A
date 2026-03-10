@@ -1,0 +1,97 @@
+Super, pojïme navrhnout rozložení samotné hry tak, aby bylo **pøehledné, intuitivní a atmosférické**. U šibenice je dùležité, aby hráè mìl vše na oèích, ale zároveò aby hra pùsobila napínavì.
+
+Níže ti dám nìkolik variant rozložení a konkrétní tipy, které mùžeš rovnou použít.
+
+---
+
+# ?? Doporuèené rozložení hry (UI layout)
+
+## ??? 1) Levá strana – kresba šibenice
+- Velká ilustrace šibenice a postavièky.
+- Postupné dokreslování èástí tìla podle chyb.
+- Mùžeš pøidat jemnou animaci (napø. provaz se lehce houpe).
+
+**Proè:** Hráè okamžitì vidí, jak si vede.
+
+---
+
+## ?? 2) Horní èást – hádané slovo
+- Velké, dobøe èitelné podtržítka: `_ _ _ _ _`
+- Po uhodnutí se písmena doplòují.
+- Mùžeš pøidat jemný efekt „bliknutí“ pøi odhalení písmene.
+
+**Tip:** Použij font, který ladí s tématem (napø. Special Elite nebo Amatic SC).
+
+---
+
+## ?? 3) Spodní èást – klávesnice
+Buï:
+### **A) Virtuální klávesnice**
+- Rozložení jako QWERTY.
+- Písmena po kliknutí zmìní barvu:
+  - **Zelená** – správnì
+  - **Èervená** – špatnì
+  - **Šedá** – už použité
+
+### **B) Tlaèítka v møížce**
+- 3–4 øádky po 8–10 písmenech.
+- Styl døevìných destièek, papírových kartièek nebo kovových plíškù.
+
+**Proè:** Hráè nemusí psát na klávesnici, vše je ovladatelné myší.
+
+---
+
+## ?? 4) Pravá strana – informace o høe
+Tady mùžeš dát doplòkové prvky:
+
+- **Poèet zbývajících pokusù** (napø. 6/10)
+- **Kategorie slova** (zvíøe, mìsto, film…)
+- **Obtížnost**
+- **Historie špatných písmen** (napø. „Špatnì: R, T, M“)
+- **Tlaèítko „Nápovìda“** (pokud chceš)
+
+---
+
+## ??? 5) Horní pravý roh – mini menu
+Malé ikonky:
+- ?? **Nastavení**
+- ? **Pravidla**
+- ?? **Restart hry**
+- ?? **Návrat do hlavního menu**
+
+---
+
+# ?? Barevné schéma
+Záleží na stylu, který chceš:
+
+### **Temný styl**
+- Pozadí: #1A1A1A
+- Text: #EAEAEA
+- Tlaèítka: #333 / #555
+- Zvýraznìní: èervená (#C0392B)
+
+### **Western / pergamen**
+- Pozadí: svìtle hnìdá (#E8D7A1)
+- Text: tmavì hnìdá (#4A2C2A)
+- Tlaèítka: døevo (#8B5A2B)
+- Zvýraznìní: vínová (#7B1E1E)
+
+---
+
+# ?? Malé detaily, které zlepší dojem
+- Animace pøi chybì (napø. krátké zatøesení obrazovky).
+- Zvuk tužky pøi doplnìní písmene.
+- Jemný stín pod šibenicí pro hloubku.
+- Pøi výhøe krátká animace (napø. postavièka vyskoèí).
+- Pøi prohøe se provaz zhoupne.
+
+---
+
+# ?? Chceš konkrétní návrh podle stylu?
+Mùžu ti navrhnout:
+- kompletní layout jako obrázek (textovì popsaný),
+- barevnou paletu,
+- styl tlaèítek,
+- nebo dokonce mockup rozložení.
+
+Staèí øíct, jestli chceš **temný**, **westernový**, **komiksový**, nebo **minimalistický** styl.

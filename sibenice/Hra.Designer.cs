@@ -58,7 +58,7 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 35F));
-            tableLayoutPanel2.Size = new Size(706, 408);
+            tableLayoutPanel2.Size = new Size(645, 355);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // label1
@@ -68,7 +68,7 @@
             label1.Font = new Font("Papyrus", 20F);
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(700, 40);
+            label1.Size = new Size(639, 35);
             label1.TabIndex = 0;
             label1.Text = "Šibenice";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -81,20 +81,21 @@
             sibeniceInfo.Controls.Add(sibenicePanacek, 0, 0);
             sibeniceInfo.Controls.Add(informace, 1, 0);
             sibeniceInfo.Dock = DockStyle.Fill;
-            sibeniceInfo.Location = new Point(3, 43);
+            sibeniceInfo.Location = new Point(3, 38);
             sibeniceInfo.Name = "sibeniceInfo";
             sibeniceInfo.RowCount = 1;
             sibeniceInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             sibeniceInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            sibeniceInfo.Size = new Size(700, 157);
+            sibeniceInfo.Size = new Size(639, 136);
             sibeniceInfo.TabIndex = 1;
             // 
             // klavesnice
             // 
             klavesnice.Dock = DockStyle.Fill;
-            klavesnice.Location = new Point(3, 267);
+            klavesnice.Location = new Point(0, 230);
+            klavesnice.Margin = new Padding(0);
             klavesnice.Name = "klavesnice";
-            klavesnice.Size = new Size(700, 138);
+            klavesnice.Size = new Size(645, 125);
             klavesnice.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -105,12 +106,12 @@
             tableLayoutPanel1.Controls.Add(button1, 0, 0);
             tableLayoutPanel1.Controls.Add(button2, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 408);
+            tableLayoutPanel1.Location = new Point(0, 355);
             tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(706, 37);
+            tableLayoutPanel1.Size = new Size(645, 37);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // button1
@@ -118,7 +119,7 @@
             button1.Dock = DockStyle.Fill;
             button1.Location = new Point(3, 3);
             button1.Name = "button1";
-            button1.Size = new Size(347, 31);
+            button1.Size = new Size(316, 31);
             button1.TabIndex = 0;
             button1.Text = "Vzdát se";
             button1.UseVisualStyleBackColor = true;
@@ -126,9 +127,9 @@
             // button2
             // 
             button2.Dock = DockStyle.Fill;
-            button2.Location = new Point(356, 3);
+            button2.Location = new Point(325, 3);
             button2.Name = "button2";
-            button2.Size = new Size(347, 31);
+            button2.Size = new Size(317, 31);
             button2.TabIndex = 1;
             button2.Text = "Ukončit";
             button2.UseVisualStyleBackColor = true;
@@ -136,10 +137,10 @@
             // slovoContainer
             // 
             slovoContainer.Dock = DockStyle.Fill;
-            slovoContainer.Location = new Point(0, 203);
+            slovoContainer.Location = new Point(0, 177);
             slovoContainer.Margin = new Padding(0);
             slovoContainer.Name = "slovoContainer";
-            slovoContainer.Size = new Size(706, 61);
+            slovoContainer.Size = new Size(645, 53);
             slovoContainer.TabIndex = 3;
             // 
             // sibenicePanacek
@@ -148,23 +149,23 @@
             sibenicePanacek.Location = new Point(0, 0);
             sibenicePanacek.Margin = new Padding(0);
             sibenicePanacek.Name = "sibenicePanacek";
-            sibenicePanacek.Size = new Size(350, 157);
+            sibenicePanacek.Size = new Size(319, 136);
             sibenicePanacek.TabIndex = 0;
             // 
             // informace
             // 
             informace.Dock = DockStyle.Fill;
-            informace.Location = new Point(350, 0);
+            informace.Location = new Point(319, 0);
             informace.Margin = new Padding(0);
             informace.Name = "informace";
-            informace.Size = new Size(350, 157);
+            informace.Size = new Size(320, 136);
             informace.TabIndex = 1;
             // 
             // Hra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(706, 445);
+            ClientSize = new Size(645, 392);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
             Name = "Hra";
