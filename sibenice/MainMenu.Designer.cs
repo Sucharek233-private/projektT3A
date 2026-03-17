@@ -25,10 +25,10 @@
         private void InitializeComponent() {
             label1 = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            materialButton_Play = new ReaLTaiizor.Controls.MaterialButton();
+            materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
+            materialButton2 = new ReaLTaiizor.Controls.MaterialButton();
+            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -46,10 +46,10 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(button1, 0, 0);
-            tableLayoutPanel1.Controls.Add(button2, 0, 1);
-            tableLayoutPanel1.Controls.Add(button3, 0, 2);
-            tableLayoutPanel1.Controls.Add(button4, 0, 3);
+            tableLayoutPanel1.Controls.Add(materialButton_Play, 0, 0);
+            tableLayoutPanel1.Controls.Add(materialButton3, 0, 2);
+            tableLayoutPanel1.Controls.Add(materialButton2, 0, 1);
+            tableLayoutPanel1.Controls.Add(materialButton1, 0, 3);
             tableLayoutPanel1.Location = new Point(12, 101);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
@@ -57,62 +57,111 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.Size = new Size(360, 137);
+            tableLayoutPanel1.Size = new Size(360, 191);
             tableLayoutPanel1.TabIndex = 1;
             // 
-            // button1
+            // materialButton_Play
             // 
-            button1.Dock = DockStyle.Fill;
-            button1.Location = new Point(3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(354, 28);
-            button1.TabIndex = 0;
-            button1.Text = "Hrát";
-            button1.UseVisualStyleBackColor = true;
+            materialButton_Play.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton_Play.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton_Play.Depth = 0;
+            materialButton_Play.Dock = DockStyle.Fill;
+            materialButton_Play.HighEmphasis = true;
+            materialButton_Play.Icon = null;
+            materialButton_Play.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            materialButton_Play.Location = new Point(4, 6);
+            materialButton_Play.Margin = new Padding(4, 6, 4, 6);
+            materialButton_Play.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton_Play.Name = "materialButton_Play";
+            materialButton_Play.NoAccentTextColor = Color.Empty;
+            materialButton_Play.Size = new Size(352, 35);
+            materialButton_Play.TabIndex = 5;
+            materialButton_Play.Text = "Hrát";
+            materialButton_Play.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton_Play.UseAccentColor = false;
+            materialButton_Play.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // materialButton3
             // 
-            button2.Dock = DockStyle.Fill;
-            button2.Location = new Point(3, 37);
-            button2.Name = "button2";
-            button2.Size = new Size(354, 28);
-            button2.TabIndex = 1;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton3.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton3.Depth = 0;
+            materialButton3.Dock = DockStyle.Fill;
+            materialButton3.HighEmphasis = true;
+            materialButton3.Icon = null;
+            materialButton3.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            materialButton3.Location = new Point(4, 100);
+            materialButton3.Margin = new Padding(4, 6, 4, 6);
+            materialButton3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton3.Name = "materialButton3";
+            materialButton3.NoAccentTextColor = Color.Empty;
+            materialButton3.Size = new Size(352, 35);
+            materialButton3.TabIndex = 4;
+            materialButton3.Text = "materialButton3";
+            materialButton3.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton3.UseAccentColor = false;
+            materialButton3.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // materialButton2
             // 
-            button3.Dock = DockStyle.Fill;
-            button3.Location = new Point(3, 71);
-            button3.Name = "button3";
-            button3.Size = new Size(354, 28);
-            button3.TabIndex = 2;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton2.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton2.Depth = 0;
+            materialButton2.Dock = DockStyle.Fill;
+            materialButton2.HighEmphasis = true;
+            materialButton2.Icon = null;
+            materialButton2.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            materialButton2.Location = new Point(4, 53);
+            materialButton2.Margin = new Padding(4, 6, 4, 6);
+            materialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton2.Name = "materialButton2";
+            materialButton2.NoAccentTextColor = Color.Empty;
+            materialButton2.Size = new Size(352, 35);
+            materialButton2.TabIndex = 3;
+            materialButton2.Text = "materialButton2";
+            materialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton2.UseAccentColor = false;
+            materialButton2.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // materialButton1
             // 
-            button4.Dock = DockStyle.Fill;
-            button4.Location = new Point(3, 105);
-            button4.Name = "button4";
-            button4.Size = new Size(354, 29);
-            button4.TabIndex = 3;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton1.Depth = 0;
+            materialButton1.Dock = DockStyle.Fill;
+            materialButton1.HighEmphasis = true;
+            materialButton1.Icon = null;
+            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            materialButton1.Location = new Point(4, 147);
+            materialButton1.Margin = new Padding(4, 6, 4, 6);
+            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton1.Name = "materialButton1";
+            materialButton1.NoAccentTextColor = Color.Empty;
+            materialButton1.Size = new Size(352, 38);
+            materialButton1.TabIndex = 2;
+            materialButton1.Text = "materialButton1";
+            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton1.UseAccentColor = false;
+            materialButton1.UseVisualStyleBackColor = true;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(384, 461);
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(400, 500);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(label1);
-            MaximumSize = new Size(400, 500);
-            MinimumSize = new Size(400, 500);
+            MaximumSize = new Size(1920, 1040);
+            MinimumSize = new Size(261, 61);
             Name = "MainMenu";
-            Text = "MainMenu";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "themeForm1";
+            TransparencyKey = Color.Fuchsia;
             Load += MainMenu_Load;
             tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -120,9 +169,9 @@
 
         private Label label1;
         private TableLayoutPanel tableLayoutPanel1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private ReaLTaiizor.Controls.MaterialButton materialButton1;
+        private ReaLTaiizor.Controls.MaterialButton materialButton_Play;
+        private ReaLTaiizor.Controls.MaterialButton materialButton3;
+        private ReaLTaiizor.Controls.MaterialButton materialButton2;
     }
 }
