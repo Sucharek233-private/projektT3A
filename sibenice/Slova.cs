@@ -15,5 +15,11 @@ namespace sibenice {
             wordlist = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(sWordlist) ?? [];
             temata = wordlist.Keys.ToList();
         }
+
+        public List<string> GetWordForTema(string tema) {
+            var words = wordlist[tema];
+            var rnd = new Random();
+            return words.OrderBy(x => rnd.Next()).Take(1).ToList();
+        }
     }
 }

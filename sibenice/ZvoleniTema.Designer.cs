@@ -23,20 +23,20 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            label1 = new Label();
+            label_Main = new Label();
             temaContainer = new TableLayoutPanel();
             SuspendLayout();
             // 
-            // label1
+            // label_Main
             // 
-            label1.Dock = DockStyle.Top;
-            label1.Font = new Font("Papyrus", 20F);
-            label1.Location = new Point(0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(290, 44);
-            label1.TabIndex = 0;
-            label1.Text = "Vyber Téma";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label_Main.Dock = DockStyle.Top;
+            label_Main.Font = new Font("Papyrus", 20F);
+            label_Main.Location = new Point(0, 0);
+            label_Main.Name = "label_Main";
+            label_Main.Size = new Size(290, 44);
+            label_Main.TabIndex = 0;
+            label_Main.Text = "Témata";
+            label_Main.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // temaContainer
             // 
@@ -56,7 +56,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(290, 380);
             Controls.Add(temaContainer);
-            Controls.Add(label1);
+            Controls.Add(label_Main);
             Name = "ZvoleniTema";
             Text = "ZvoleniTema";
             Load += ZvoleniTema_Load;
@@ -65,7 +65,7 @@
 
         #endregion
 
-        private Label label1;
+        private Label label_Main;
         private TableLayoutPanel temaContainer;
     }
 }
