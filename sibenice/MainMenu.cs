@@ -15,7 +15,7 @@ namespace sibenice {
         }
 
         private void MainMenu_Load(object sender, EventArgs e) {
-
+            
         }
     }
 }

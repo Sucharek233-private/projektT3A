@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            label1 = new Label();
+            label_Main = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             materialButton_Play = new ReaLTaiizor.Controls.MaterialButton();
             materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
@@ -32,15 +32,15 @@
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // label_Main
             // 
-            label1.Font = new Font("Papyrus", 50F);
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(360, 89);
-            label1.TabIndex = 0;
-            label1.Text = "Šibenice";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label_Main.Font = new Font("Papyrus", 50F);
+            label_Main.Location = new Point(12, 9);
+            label_Main.Name = "label_Main";
+            label_Main.Size = new Size(360, 89);
+            label_Main.TabIndex = 0;
+            label_Main.Text = "Šibenice";
+            label_Main.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
             // 
@@ -151,7 +151,7 @@
             BackColor = SystemColors.Control;
             ClientSize = new Size(400, 500);
             Controls.Add(tableLayoutPanel1);
-            Controls.Add(label1);
+            Controls.Add(label_Main);
             MaximumSize = new Size(1920, 1040);
             MinimumSize = new Size(261, 61);
             Name = "MainMenu";
@@ -167,7 +167,7 @@
 
         #endregion
 
-        private Label label1;
+        private Label label_Main;
         private TableLayoutPanel tableLayoutPanel1;
         private ReaLTaiizor.Controls.MaterialButton materialButton1;
         private ReaLTaiizor.Controls.MaterialButton materialButton_Play;

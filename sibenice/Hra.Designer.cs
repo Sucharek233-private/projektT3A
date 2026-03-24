@@ -32,11 +32,11 @@
             sibeniceInfo = new TableLayoutPanel();
             sibenicePanacek = new FlowLayoutPanel();
             informace = new FlowLayoutPanel();
-            slovoContainer = new FlowLayoutPanel();
             klavesniceContainer = new TableLayoutPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             materialButton_GiveUp = new ReaLTaiizor.Controls.MaterialButton();
             materialButton_Exit = new ReaLTaiizor.Controls.MaterialButton();
+            hadaneSlovoLabel = new Label();
             tableLayoutPanel2.SuspendLayout();
             sibeniceInfo.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -48,8 +48,8 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.Controls.Add(label_Main, 0, 0);
             tableLayoutPanel2.Controls.Add(sibeniceInfo, 0, 1);
-            tableLayoutPanel2.Controls.Add(slovoContainer, 0, 2);
             tableLayoutPanel2.Controls.Add(klavesniceContainer, 0, 3);
+            tableLayoutPanel2.Controls.Add(hadaneSlovoLabel, 0, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -106,15 +106,6 @@
             informace.Name = "informace";
             informace.Size = new Size(315, 128);
             informace.TabIndex = 1;
-            // 
-            // slovoContainer
-            // 
-            slovoContainer.Dock = DockStyle.Fill;
-            slovoContainer.Location = new Point(0, 167);
-            slovoContainer.Margin = new Padding(0);
-            slovoContainer.Name = "slovoContainer";
-            slovoContainer.Size = new Size(635, 50);
-            slovoContainer.TabIndex = 3;
             // 
             // klavesniceContainer
             // 
@@ -188,6 +179,17 @@
             materialButton_Exit.UseAccentColor = false;
             materialButton_Exit.UseVisualStyleBackColor = true;
             // 
+            // hadaneSlovoLabel
+            // 
+            hadaneSlovoLabel.Dock = DockStyle.Fill;
+            hadaneSlovoLabel.Font = new Font("Microsoft Sans Serif", 18F);
+            hadaneSlovoLabel.Location = new Point(3, 167);
+            hadaneSlovoLabel.Name = "hadaneSlovoLabel";
+            hadaneSlovoLabel.Size = new Size(629, 50);
+            hadaneSlovoLabel.TabIndex = 5;
+            hadaneSlovoLabel.Text = "_ L _ V _";
+            hadaneSlovoLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // Hra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -210,12 +212,12 @@
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel sibeniceInfo;
-        private FlowLayoutPanel slovoContainer;
         private FlowLayoutPanel sibenicePanacek;
         private FlowLayoutPanel informace;
         private ReaLTaiizor.Controls.MaterialButton materialButton_GiveUp;
         private ReaLTaiizor.Controls.MaterialButton materialButton_Exit;
         private Label label_Main;
         private TableLayoutPanel klavesniceContainer;
+        private Label hadaneSlovoLabel;
     }
 }
