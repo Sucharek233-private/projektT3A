@@ -33,7 +33,7 @@
             sibenicePanacek = new FlowLayoutPanel();
             informace = new FlowLayoutPanel();
             slovoContainer = new FlowLayoutPanel();
-            klavesnice = new TableLayoutPanel();
+            klavesniceContainer = new TableLayoutPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             materialButton_GiveUp = new ReaLTaiizor.Controls.MaterialButton();
             materialButton_Exit = new ReaLTaiizor.Controls.MaterialButton();
@@ -49,7 +49,7 @@
             tableLayoutPanel2.Controls.Add(label_Main, 0, 0);
             tableLayoutPanel2.Controls.Add(sibeniceInfo, 0, 1);
             tableLayoutPanel2.Controls.Add(slovoContainer, 0, 2);
-            tableLayoutPanel2.Controls.Add(klavesnice, 0, 3);
+            tableLayoutPanel2.Controls.Add(klavesniceContainer, 0, 3);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -116,19 +116,19 @@
             slovoContainer.Size = new Size(635, 50);
             slovoContainer.TabIndex = 3;
             // 
-            // klavesnice
+            // klavesniceContainer
             // 
-            klavesnice.ColumnCount = 1;
-            klavesnice.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            klavesnice.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            klavesnice.Dock = DockStyle.Fill;
-            klavesnice.Location = new Point(3, 220);
-            klavesnice.Name = "klavesnice";
-            klavesnice.RowCount = 1;
-            klavesnice.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            klavesnice.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            klavesnice.Size = new Size(629, 114);
-            klavesnice.TabIndex = 4;
+            klavesniceContainer.ColumnCount = 1;
+            klavesniceContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            klavesniceContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            klavesniceContainer.Dock = DockStyle.Fill;
+            klavesniceContainer.Location = new Point(3, 220);
+            klavesniceContainer.Name = "klavesniceContainer";
+            klavesniceContainer.RowCount = 1;
+            klavesniceContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            klavesniceContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            klavesniceContainer.Size = new Size(629, 114);
+            klavesniceContainer.TabIndex = 4;
             // 
             // tableLayoutPanel1
             // 
@@ -216,6 +216,6 @@
         private ReaLTaiizor.Controls.MaterialButton materialButton_GiveUp;
         private ReaLTaiizor.Controls.MaterialButton materialButton_Exit;
         private Label label_Main;
-        private TableLayoutPanel klavesnice;
+        private TableLayoutPanel klavesniceContainer;
     }
 }
