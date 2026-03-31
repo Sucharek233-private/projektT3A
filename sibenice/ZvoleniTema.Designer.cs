@@ -33,7 +33,7 @@
             label_Main.Font = new Font("Papyrus", 20F);
             label_Main.Location = new Point(0, 0);
             label_Main.Name = "label_Main";
-            label_Main.Size = new Size(290, 44);
+            label_Main.Size = new Size(304, 44);
             label_Main.TabIndex = 0;
             label_Main.Text = "Témata";
             label_Main.TextAlign = ContentAlignment.MiddleCenter;
@@ -47,14 +47,14 @@
             temaContainer.Name = "temaContainer";
             temaContainer.RowCount = 1;
             temaContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            temaContainer.Size = new Size(290, 336);
+            temaContainer.Size = new Size(304, 330);
             temaContainer.TabIndex = 1;
             // 
             // ZvoleniTema
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(290, 380);
+            ClientSize = new Size(304, 374);
             Controls.Add(temaContainer);
             Controls.Add(label_Main);
             Name = "ZvoleniTema";

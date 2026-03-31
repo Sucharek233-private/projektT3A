@@ -29,10 +29,15 @@ namespace sibenice {
             );
         }
 
+        public void RebuildKeyboard() {
+            klavesnice.Controls.Clear();
+            BuildKeyboard();
+        }
+
         private void BuildKeyboard() {
             // Velikost klavesnice
             klavesnice.RowCount = 3;
-            klavesnice.ColumnCount = 15;
+            klavesnice.ColumnCount = 14;
 
             // vytvoreni sloupcu a radku
             klavesnice.ColumnStyles.Clear();

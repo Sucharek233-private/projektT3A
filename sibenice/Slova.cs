@@ -16,10 +16,10 @@ namespace sibenice {
             temata = wordlist.Keys.ToList();
         }
 
-        public List<string> GetWordForTema(string tema) {
+        public string GetWordForTema(string tema) {
             var words = wordlist[tema];
             var rnd = new Random();
-            return words.OrderBy(x => rnd.Next()).Take(1).ToList();
+            return words[rnd.Next(words.Count)];
         }
     }
 }

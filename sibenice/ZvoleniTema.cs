@@ -12,11 +12,13 @@ using static ReaLTaiizor.Manager.MaterialSkinManager;
 namespace sibenice {
     public partial class ZvoleniTema : Form {
         private Slova slova;
+        private Hra hra;
 
         public ZvoleniTema() {
             InitializeComponent();
 
             slova = new Slova();
+            hra = new Hra();
         }
         private void ZvoleniTema_Load(object sender, EventArgs e) {
             slova.LoadWords();
@@ -41,15 +43,26 @@ namespace sibenice {
                     Margin = new Padding(3),
                     Dock = DockStyle.Fill
                 };
-                btn.Click += (s, ev) => {
-                    var hraForm = new Hra();
-                    hraForm.Show();
-                    this.Close();
-                };
+                btn.Click += LoadTema;
                 temaContainer.Controls.Add(btn, 0, r);
                 r++;
             });
 
+            // aktualizace velikosti okna podle poctu tlacitek
+            int velikostTlacitek = 30;
+            int velikostOstatni = 50;
+            this.ClientSize = new Size(this.ClientSize.Width, temaContainer.RowCount * velikostTlacitek + velikostOstatni);
+
+        }
+
+        private void LoadTema(object sender, EventArgs e) {
+            string tema = (sender as ReaLTaiizor.Controls.MaterialButton)?.Text ?? "fallback";
+            string slovo = slova.GetWordForTema(tema);
+            //label_Main.Text = slovo;
+
+            hra.UpdateWord(slovo);
+            hra.Show();
+            this.Close();
         }
     }
 }

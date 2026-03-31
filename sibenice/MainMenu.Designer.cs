@@ -80,6 +80,7 @@
             materialButton_Play.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             materialButton_Play.UseAccentColor = false;
             materialButton_Play.UseVisualStyleBackColor = true;
+            materialButton_Play.Click += materialButton_Play_Click;
             // 
             // materialButton3
             // 
