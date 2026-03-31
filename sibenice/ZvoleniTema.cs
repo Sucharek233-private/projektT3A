@@ -60,7 +60,7 @@ namespace sibenice {
             string slovo = slova.GetWordForTema(tema);
             //label_Main.Text = slovo;
 
-            hra.UpdateWord(slovo);
+            hra.UpdateWord(slovo, tema);
             hra.Show();
             this.Close();
         }

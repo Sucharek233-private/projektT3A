@@ -30,15 +30,17 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             label_Main = new Label();
             sibeniceInfo = new TableLayoutPanel();
-            sibenicePanacek = new FlowLayoutPanel();
-            informace = new FlowLayoutPanel();
+            sibenicePanacek = new ReaLTaiizor.Controls.MaterialCard();
+            informace_card = new ReaLTaiizor.Controls.MaterialCard();
+            informace_ = new Label();
             klavesniceContainer = new TableLayoutPanel();
+            hadaneSlovoLabel = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             materialButton_GiveUp = new ReaLTaiizor.Controls.MaterialButton();
             materialButton_Exit = new ReaLTaiizor.Controls.MaterialButton();
-            hadaneSlovoLabel = new Label();
             tableLayoutPanel2.SuspendLayout();
             sibeniceInfo.SuspendLayout();
+            informace_card.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,10 +57,10 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 4;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 40F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 15F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 35F));
-            tableLayoutPanel2.Size = new Size(635, 337);
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 55F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
+            tableLayoutPanel2.Size = new Size(635, 457);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // label_Main
@@ -68,7 +70,7 @@
             label_Main.Font = new Font("Papyrus", 20F);
             label_Main.Location = new Point(3, 0);
             label_Main.Name = "label_Main";
-            label_Main.Size = new Size(629, 33);
+            label_Main.Size = new Size(629, 45);
             label_Main.TabIndex = 0;
             label_Main.Text = "Šibenice";
             label_Main.TextAlign = ContentAlignment.MiddleCenter;
@@ -79,33 +81,56 @@
             sibeniceInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             sibeniceInfo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             sibeniceInfo.Controls.Add(sibenicePanacek, 0, 0);
-            sibeniceInfo.Controls.Add(informace, 1, 0);
+            sibeniceInfo.Controls.Add(informace_card, 1, 0);
             sibeniceInfo.Dock = DockStyle.Fill;
-            sibeniceInfo.Location = new Point(3, 36);
+            sibeniceInfo.Location = new Point(3, 48);
             sibeniceInfo.Name = "sibeniceInfo";
             sibeniceInfo.RowCount = 1;
             sibeniceInfo.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             sibeniceInfo.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            sibeniceInfo.Size = new Size(629, 128);
+            sibeniceInfo.Size = new Size(629, 245);
             sibeniceInfo.TabIndex = 1;
             // 
             // sibenicePanacek
             // 
+            sibenicePanacek.BackColor = Color.FromArgb(255, 255, 255);
+            sibenicePanacek.Depth = 0;
             sibenicePanacek.Dock = DockStyle.Fill;
-            sibenicePanacek.Location = new Point(0, 0);
-            sibenicePanacek.Margin = new Padding(0);
+            sibenicePanacek.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            sibenicePanacek.Location = new Point(14, 14);
+            sibenicePanacek.Margin = new Padding(14);
+            sibenicePanacek.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             sibenicePanacek.Name = "sibenicePanacek";
-            sibenicePanacek.Size = new Size(314, 128);
+            sibenicePanacek.Padding = new Padding(14);
+            sibenicePanacek.Size = new Size(286, 217);
             sibenicePanacek.TabIndex = 0;
+            sibenicePanacek.Paint += sibenicePanacek_Paint;
             // 
-            // informace
+            // informace_card
             // 
-            informace.Dock = DockStyle.Fill;
-            informace.Location = new Point(314, 0);
-            informace.Margin = new Padding(0);
-            informace.Name = "informace";
-            informace.Size = new Size(315, 128);
-            informace.TabIndex = 1;
+            informace_card.BackColor = Color.FromArgb(255, 255, 255);
+            informace_card.Controls.Add(informace_);
+            informace_card.Depth = 0;
+            informace_card.Dock = DockStyle.Fill;
+            informace_card.ForeColor = Color.FromArgb(222, 0, 0, 0);
+            informace_card.Location = new Point(328, 14);
+            informace_card.Margin = new Padding(14);
+            informace_card.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            informace_card.Name = "informace_card";
+            informace_card.Padding = new Padding(14);
+            informace_card.Size = new Size(287, 217);
+            informace_card.TabIndex = 0;
+            // 
+            // informace_
+            // 
+            informace_.Dock = DockStyle.Fill;
+            informace_.Font = new Font("Microsoft Sans Serif", 12F);
+            informace_.Location = new Point(14, 14);
+            informace_.Name = "informace_";
+            informace_.Size = new Size(259, 189);
+            informace_.TabIndex = 1;
+            informace_.Text = "Informace:";
+            informace_.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // klavesniceContainer
             // 
@@ -113,13 +138,24 @@
             klavesniceContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             klavesniceContainer.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
             klavesniceContainer.Dock = DockStyle.Fill;
-            klavesniceContainer.Location = new Point(3, 220);
+            klavesniceContainer.Location = new Point(3, 344);
             klavesniceContainer.Name = "klavesniceContainer";
             klavesniceContainer.RowCount = 1;
             klavesniceContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             klavesniceContainer.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            klavesniceContainer.Size = new Size(629, 114);
+            klavesniceContainer.Size = new Size(629, 110);
             klavesniceContainer.TabIndex = 4;
+            // 
+            // hadaneSlovoLabel
+            // 
+            hadaneSlovoLabel.Dock = DockStyle.Fill;
+            hadaneSlovoLabel.Font = new Font("Microsoft Sans Serif", 18F);
+            hadaneSlovoLabel.Location = new Point(3, 296);
+            hadaneSlovoLabel.Name = "hadaneSlovoLabel";
+            hadaneSlovoLabel.Size = new Size(629, 45);
+            hadaneSlovoLabel.TabIndex = 5;
+            hadaneSlovoLabel.Text = "_ L _ V _";
+            hadaneSlovoLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel1
             // 
@@ -129,7 +165,7 @@
             tableLayoutPanel1.Controls.Add(materialButton_GiveUp, 0, 0);
             tableLayoutPanel1.Controls.Add(materialButton_Exit, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Bottom;
-            tableLayoutPanel1.Location = new Point(0, 337);
+            tableLayoutPanel1.Location = new Point(0, 457);
             tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -179,22 +215,11 @@
             materialButton_Exit.UseAccentColor = false;
             materialButton_Exit.UseVisualStyleBackColor = true;
             // 
-            // hadaneSlovoLabel
-            // 
-            hadaneSlovoLabel.Dock = DockStyle.Fill;
-            hadaneSlovoLabel.Font = new Font("Microsoft Sans Serif", 18F);
-            hadaneSlovoLabel.Location = new Point(3, 167);
-            hadaneSlovoLabel.Name = "hadaneSlovoLabel";
-            hadaneSlovoLabel.Size = new Size(629, 50);
-            hadaneSlovoLabel.TabIndex = 5;
-            hadaneSlovoLabel.Text = "_ L _ V _";
-            hadaneSlovoLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // Hra
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(635, 374);
+            ClientSize = new Size(635, 494);
             Controls.Add(tableLayoutPanel2);
             Controls.Add(tableLayoutPanel1);
             Name = "Hra";
@@ -203,6 +228,7 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             sibeniceInfo.ResumeLayout(false);
+            informace_card.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
@@ -212,12 +238,13 @@
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel sibeniceInfo;
-        private FlowLayoutPanel sibenicePanacek;
-        private FlowLayoutPanel informace;
         private ReaLTaiizor.Controls.MaterialButton materialButton_GiveUp;
         private ReaLTaiizor.Controls.MaterialButton materialButton_Exit;
         private Label label_Main;
         private TableLayoutPanel klavesniceContainer;
         private Label hadaneSlovoLabel;
+        private Label informace_;
+        private ReaLTaiizor.Controls.MaterialCard informace_card;
+        private ReaLTaiizor.Controls.MaterialCard sibenicePanacek;
     }
 }
