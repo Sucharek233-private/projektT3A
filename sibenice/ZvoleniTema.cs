@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static ReaLTaiizor.Manager.MaterialSkinManager;
+using ReaLTaiizor.Forms;
 
 namespace sibenice {
-    public partial class ZvoleniTema : Form {
+    public partial class ZvoleniTema : MaterialForm {
         private Slova slova;
         private Hra hra;
+
+        private bool loaded = false;
 
         public ZvoleniTema() {
             InitializeComponent();
@@ -21,6 +24,10 @@ namespace sibenice {
             hra = new Hra();
         }
         private void ZvoleniTema_Load(object sender, EventArgs e) {
+            if (loaded) {
+                return;
+            }
+
             slova.LoadWords();
 
             temaContainer.ColumnCount = 1;
@@ -49,10 +56,11 @@ namespace sibenice {
             });
 
             // aktualizace velikosti okna podle poctu tlacitek
-            int velikostTlacitek = 30;
-            int velikostOstatni = 50;
+            int velikostTlacitek = 40;
+            int velikostOstatni = 100;
             this.ClientSize = new Size(this.ClientSize.Width, temaContainer.RowCount * velikostTlacitek + velikostOstatni);
 
+            loaded = true;
         }
 
         private void LoadTema(object sender, EventArgs e) {
@@ -60,9 +68,9 @@ namespace sibenice {
             string slovo = slova.GetWordForTema(tema);
             //label_Main.Text = slovo;
 
+            hra = new Hra();
             hra.UpdateWord(slovo, tema);
-            hra.Show();
-            this.Close();
+            hra.ShowDialog();
         }
     }
 }

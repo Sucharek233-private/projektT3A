@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace sibenice {
     internal class Postavicka {
-        public class LinePart {
+        private class LinePart {
             public Point Start { get; set; }
             public Point End { get; set; }
         }
 
-        public class CirclePart {
+        private class CirclePart {
             public Point Center { get; set; }
             public int Radius { get; set; }
         }
 
         private List<object> parts;
 
-        private void InitParts() {
+        public void InitParts() {
             parts = new List<object> {
                 new LinePart   { Start =  new Point(10, 180),  End = new Point(100, 180) }, // základna
                 new LinePart   { Start =  new Point(55, 180),  End = new Point(55, 20) },   // sloup
@@ -33,17 +33,19 @@ namespace sibenice {
             };
         }
 
-        public void Paint(Graphics g, int pokusy) {
+        public void Paint(Graphics g, int pokusy, Point posunutiNaStred) {
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
             for (int i = 0; i < pokusy && i < parts.Count; i++) {
                 if (parts[i] is LinePart lp) {
-                    g.DrawLine(Pens.Black, lp.Start, lp.End);
+                    g.DrawLine(Pens.Black,
+                               lp.Start.X + posunutiNaStred.X, lp.Start.Y + posunutiNaStred.Y,
+                               lp.End.X + posunutiNaStred.X, lp.End.Y + posunutiNaStred.Y);
                 } else if (parts[i] is CirclePart cp) {
                     g.DrawEllipse(
                         Pens.Black,
-                        cp.Center.X - cp.Radius,
-                        cp.Center.Y - cp.Radius,
+                        cp.Center.X - cp.Radius + posunutiNaStred.X,
+                        cp.Center.Y - cp.Radius + posunutiNaStred.Y,
                         cp.Radius * 2,
                         cp.Radius * 2
                     );

@@ -35,7 +35,7 @@
             // label_Main
             // 
             label_Main.Font = new Font("Papyrus", 50F);
-            label_Main.Location = new Point(12, 9);
+            label_Main.Location = new Point(12, 37);
             label_Main.Name = "label_Main";
             label_Main.Size = new Size(360, 89);
             label_Main.TabIndex = 0;
@@ -50,7 +50,7 @@
             tableLayoutPanel1.Controls.Add(materialButton3, 0, 2);
             tableLayoutPanel1.Controls.Add(materialButton2, 0, 1);
             tableLayoutPanel1.Controls.Add(materialButton1, 0, 3);
-            tableLayoutPanel1.Location = new Point(12, 101);
+            tableLayoutPanel1.Location = new Point(12, 129);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
@@ -153,12 +153,15 @@
             ClientSize = new Size(400, 500);
             Controls.Add(tableLayoutPanel1);
             Controls.Add(label_Main);
+            FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
+            MaximizeBox = false;
             MaximumSize = new Size(1920, 1040);
             MinimumSize = new Size(261, 61);
             Name = "MainMenu";
+            Padding = new Padding(3, 24, 3, 3);
             ShowIcon = false;
+            Sizable = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "themeForm1";
             TransparencyKey = Color.Fuchsia;
             Load += MainMenu_Load;
             tableLayoutPanel1.ResumeLayout(false);

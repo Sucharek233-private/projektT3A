@@ -7,9 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ReaLTaiizor.Forms;
 
 namespace sibenice {
-    public partial class MainMenu : Form {
+    public partial class MainMenu : MaterialForm {
         private ZvoleniTema zvoleniTema;
         public MainMenu() {
             InitializeComponent();

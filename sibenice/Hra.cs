@@ -1,8 +1,15 @@
 
+using ReaLTaiizor.Forms;
+
+using ReaLTaiizor.Manager;
+
 namespace sibenice
 {
-    public partial class Hra : Form {
+    public partial class Hra : MaterialForm {
         private Klavesnice klavesnice;
+        private Postavicka postavicka;
+        private MaterialStyly materialStyly;
+
         private string hadaneSlovo = "";
         private string tema = "";
 
@@ -16,7 +23,15 @@ namespace sibenice
             InitializeComponent();
 
             klavesnice = new Klavesnice();
+            postavicka = new Postavicka();
+            materialStyly = new MaterialStyly();
             //klavesnice.pripravitKlavesnici(this, klavesniceContainer);
+
+            MaterialSkinManager material = materialStyly.GreenTheme();
+            material.AddFormToManage(this);
+
+            hadaneSlovoLabel.Font = new Font("Roboto", 18);
+            informace.Font = new Font("Roboto", 12);
         }
 
         public void UpdateWord(string newWord, string newTema) {
@@ -33,15 +48,26 @@ namespace sibenice
 
             GenerateWordLabel();
             UpdateInfo();
+            postavicka.InitParts();
         }
 
         public void ResetGame() {
             klavesnice.RebuildKeyboard();
         }
 
-        public void KeyClicked(string key) {
-            MessageBox.Show($"Stisknuto: {key}");
+        private void FinalDialog(string title, string message) {
+            var dialog = new ReaLTaiizor.Controls.MaterialDialog(
+                this,
+                title,
+                message,
+                "OK",
+                false,
+                "Zavøít"
+            );
+            dialog.ShowDialog(this);
+        }
 
+        public void KeyClicked(string key) {
             char guess = key[0];
             bool found = false;
 
@@ -51,7 +77,6 @@ namespace sibenice
                     found = true;
                 }
             }
-
 
             if (found) {
                 GenerateWordLabel();
@@ -63,11 +88,15 @@ namespace sibenice
                 }
             }
 
-            //if (!odhalenaPismena.Contains('_')) {
-            //    MessageBox.Show("d");
-            //}
-
             UpdateInfo();
+
+            if (aktualniPokusy >= maxPokusy) {
+                FinalDialog("Prohra", $"Prohrál jsi! Slovo bylo: {hadaneSlovo}");
+                this.Close();
+            } else if (!odhalenaPismena.Contains('_')) {
+                FinalDialog("Vyhrál jsi!", "Gratuluji, uhodl jsi slovo.");
+                this.Close();
+            }
         }
 
         private void GenerateWordLabel() {
@@ -75,11 +104,10 @@ namespace sibenice
         }
 
         private void UpdateInfo() {
-            informace_.Text =
+            informace.Text =
                 $"Téma: {tema}\n" +
                 $"Špatná písmena: {string.Join(", ", spatnaPismena)}\n" +
                 $"Pokusy: {aktualniPokusy} / {maxPokusy}";
-
         }
 
         private void Hra_Load(object sender, EventArgs e) {
@@ -89,47 +117,14 @@ namespace sibenice
 
         private void sibenicePanacek_Paint(object sender, PaintEventArgs e) {
             Graphics g = e.Graphics;
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-            // pøíklad: 1. pokus – základna
-            if (aktualniPokusy >= 1)
-                g.DrawLine(Pens.Black, 10, 180, 100, 180);
+            Point posunutiNaStred = new Point((sibenicePanacek.Width - 200) / 2, (sibenicePanacek.Height - 200) / 2);
 
-            // 2. pokus – sloup
-            if (aktualniPokusy >= 2)
-                g.DrawLine(Pens.Black, 55, 180, 55, 20);
+            postavicka.Paint(g, aktualniPokusy, posunutiNaStred);
+        }
 
-            // 3. pokus – horní trám
-            if (aktualniPokusy >= 3)
-                g.DrawLine(Pens.Black, 55, 20, 130, 20);
-
-            // 4. pokus – provaz
-            if (aktualniPokusy >= 4)
-                g.DrawLine(Pens.Black, 130, 20, 130, 50);
-
-            // 5. pokus – hlava
-            if (aktualniPokusy >= 5)
-                g.DrawEllipse(Pens.Black, 115, 50, 30, 30);
-
-            // 6. pokus – tìlo
-            if (aktualniPokusy >= 6)
-                g.DrawLine(Pens.Black, 130, 80, 130, 130);
-
-            // 7. pokus – levá ruka
-            if (aktualniPokusy >= 7)
-                g.DrawLine(Pens.Black, 130, 90, 110, 110);
-
-            // 8. pokus – pravá ruka
-            if (aktualniPokusy >= 8)
-                g.DrawLine(Pens.Black, 130, 90, 150, 110);
-
-            // 9. pokus – levá noha
-            if (aktualniPokusy >= 9)
-                g.DrawLine(Pens.Black, 130, 130, 110, 160);
-
-            // 10. pokus – pravá noha
-            if (aktualniPokusy >= 10)
-                g.DrawLine(Pens.Black, 130, 130, 150, 160);
+        private void materialButton_Exit_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

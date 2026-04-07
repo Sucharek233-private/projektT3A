@@ -1,6 +1,6 @@
-﻿using ReaLTaiizor.Colors;
-using ReaLTaiizor.Manager;
-using ReaLTaiizor.Util;
+﻿//using ReaLTaiizor.Colors;
+//using ReaLTaiizor.Manager;
+//using ReaLTaiizor.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,16 +17,17 @@ namespace sibenice {
             klavesnice = klavesniceContainer;
             BuildKeyboard();
 
-            var material = MaterialSkinManager.Instance;
+            //var material = MaterialSkinManager.Instance;
 
             //material.Theme = MaterialSkinManager.Themes.DARK;
-            material.ColorScheme = new MaterialColorScheme(
-                MaterialPrimary.Green500,
-                MaterialPrimary.Green700,
-                MaterialPrimary.Green100,
-                MaterialAccent.Green200,
-                MaterialTextShade.WHITE
-            );
+            //material.ColorScheme = new MaterialColorScheme(
+            //    MaterialPrimary.Green500,
+            //    MaterialPrimary.Green700,
+            //    MaterialPrimary.Green100,
+            //    MaterialAccent.Green200,
+            //    MaterialTextShade.WHITE
+            //);
+            //material.AddFormToManage(hra);
         }
 
         public void RebuildKeyboard() {
