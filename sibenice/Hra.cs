@@ -8,7 +8,6 @@ namespace sibenice
     public partial class Hra : MaterialForm {
         private Klavesnice klavesnice;
         private Postavicka postavicka;
-        private MaterialStyly materialStyly;
 
         private string hadaneSlovo = "";
         private string tema = "";
@@ -24,14 +23,6 @@ namespace sibenice
 
             klavesnice = new Klavesnice();
             postavicka = new Postavicka();
-            materialStyly = new MaterialStyly();
-            //klavesnice.pripravitKlavesnici(this, klavesniceContainer);
-
-            MaterialSkinManager material = materialStyly.GreenTheme();
-            material.AddFormToManage(this);
-
-            hadaneSlovoLabel.Font = new Font("Roboto", 18);
-            informace.Font = new Font("Roboto", 12);
         }
 
         public void UpdateWord(string newWord, string newTema) {
