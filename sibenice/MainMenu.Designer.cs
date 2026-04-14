@@ -162,7 +162,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Šibenice";
             TransparencyKey = Color.Fuchsia;
-            Load += MainMenu_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);

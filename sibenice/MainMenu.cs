@@ -12,10 +12,6 @@ namespace sibenice {
             napoveda = new Napoveda();
         }
 
-        private void MainMenu_Load(object sender, EventArgs e) {
-
-        }
-
         private void materialButton_Play_Click(object sender, EventArgs e) {
             zvoleniTema.ShowDialog();
         }

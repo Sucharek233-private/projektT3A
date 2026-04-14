@@ -14,7 +14,7 @@ namespace sibenice {
             postavicka = new Postavicka();
 
             animTimer = new System.Windows.Forms.Timer();
-            animTimer.Interval = 1000; // 500 ms
+            animTimer.Interval = 1000; // 1 s
             animTimer.Tick += AnimTimer_Tick;
             animTimer.Start();
         }
@@ -22,10 +22,10 @@ namespace sibenice {
         private void AnimTimer_Tick(object sender, EventArgs e) {
             pokusy++;
 
-            if (pokusy > maxPokusy) // počet částí postavy
+            if (pokusy > maxPokusy)
                 pokusy = 0;
 
-            materialCard_Postavicka.Invalidate(); // překreslit
+            materialCard_Postavicka.Invalidate();
         }
 
         private void materialCard_Postavicka_Paint(object sender, PaintEventArgs e) {

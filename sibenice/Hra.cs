@@ -5,6 +5,7 @@ using ReaLTaiizor.Forms;
 namespace sibenice
 {
     public partial class Hra : MaterialForm {
+        // Definice, promìnné
         private Klavesnice klavesnice;
         private Postavicka postavicka;
 
@@ -24,6 +25,7 @@ namespace sibenice
             postavicka = new Postavicka();
         }
 
+        // Funkce pro nastavení slova a tématu, inicializace hry
         public void UpdateWord(string newWord, string newTema) {
             hadaneSlovo = newWord.ToUpper();
             tema = newTema;
@@ -44,8 +46,9 @@ namespace sibenice
             klavesnice.RebuildKeyboard();
         }
 
+        // Dialogy pro konec hry a potvrzení
         private void FinalDialog(string title, string message) {
-            MaterialDialog dialog = new ReaLTaiizor.Controls.MaterialDialog(
+            MaterialDialog dialog = new MaterialDialog(
                 this,
                 title,
                 message,
@@ -57,7 +60,7 @@ namespace sibenice
         }
 
         private bool YesNoDialog(string title, string message) {
-            MaterialDialog dialog = new ReaLTaiizor.Controls.MaterialDialog(
+            MaterialDialog dialog = new MaterialDialog(
                 this,
                 title,
                 message,
@@ -65,11 +68,11 @@ namespace sibenice
                 true,
                 "Ne"
             );
-
             DialogResult result = dialog.ShowDialog(this);
             return result == DialogResult.OK;
         }
 
+        // Hlavní logika hry - zpracování kliknutí na klávesu
         public void KeyClicked(string key) {
             char guess = key[0];
             bool found = false;
@@ -102,22 +105,26 @@ namespace sibenice
             }
         }
 
+        // Pomocné funkce pro aktualizaci zobrazení
         private void GenerateWordLabel() {
             hadaneSlovoLabel.Text = string.Join(" ", odhalenaPismena);
         }
 
         private void UpdateInfo() {
+            string spatnaPismenaStr = string.Join(", ", spatnaPismena);
             informace.Text =
                 $"Téma: {tema}\n" +
-                $"Špatná písmena: {string.Join(", ", spatnaPismena)}\n" +
+                $"Špatná písmena: {spatnaPismenaStr}\n" +
                 $"Pokusy: {aktualniPokusy} / {maxPokusy}";
         }
 
+        // Pøíprava klávesnice a naètení prvního slova pøi naètení formu
         private void Hra_Load(object sender, EventArgs e) {
             klavesnice.pripravitKlavesnici(this, klavesniceContainer);
             GenerateWordLabel();
         }
 
+        // Vykreslení postavièky
         private void sibenicePanacek_Paint(object sender, PaintEventArgs e) {
             Graphics g = e.Graphics;
 
@@ -126,6 +133,7 @@ namespace sibenice
             postavicka.Paint(g, aktualniPokusy, velikost);
         }
 
+        // Tlaèítka pro vzdání se a ukonèení hry
         private void materialButton_GiveUp_Click(object sender, EventArgs e) {
             bool result = YesNoDialog("Vzdát se", "Opravdu se chcete vzdát?");
             if (result) {
