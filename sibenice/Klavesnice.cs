@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace sibenice {
+﻿namespace sibenice {
     internal class Klavesnice {
         private TableLayoutPanel klavesnice;
         private Hra hra;
@@ -13,7 +7,6 @@ namespace sibenice {
             hra = hraRef;
             klavesnice = klavesniceContainer;
             BuildKeyboard();
-
         }
 
         public void RebuildKeyboard() {

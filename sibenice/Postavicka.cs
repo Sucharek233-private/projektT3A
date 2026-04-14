@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace sibenice {
+﻿namespace sibenice {
     internal class Postavicka {
+        public Postavicka() {
+            InitParts();
+        }
+
+        const int postavickaSize = 200;
+
         private class LinePart {
             public Point Start { get; set; }
             public Point End { get; set; }
@@ -18,7 +18,7 @@ namespace sibenice {
 
         private List<object> parts;
 
-        public void InitParts() {
+        private void InitParts() {
             parts = new List<object> {
                 new LinePart   { Start =  new Point(10, 180),  End = new Point(100, 180) }, // základna
                 new LinePart   { Start =  new Point(55, 180),  End = new Point(55, 20) },   // sloup
@@ -33,8 +33,10 @@ namespace sibenice {
             };
         }
 
-        public void Paint(Graphics g, int pokusy, Point posunutiNaStred) {
+        public void Paint(Graphics g, int pokusy, Point velikost) {
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+
+            Point posunutiNaStred = new Point((velikost.X - postavickaSize) / 2, (velikost.Y - postavickaSize) / 2);
 
             for (int i = 0; i < pokusy && i < parts.Count; i++) {
                 if (parts[i] is LinePart lp) {

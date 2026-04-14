@@ -26,38 +26,41 @@
             label_Main = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             materialButton_Play = new ReaLTaiizor.Controls.MaterialButton();
-            materialButton3 = new ReaLTaiizor.Controls.MaterialButton();
-            materialButton2 = new ReaLTaiizor.Controls.MaterialButton();
-            materialButton1 = new ReaLTaiizor.Controls.MaterialButton();
+            materialButton_Exit = new ReaLTaiizor.Controls.MaterialButton();
+            materialButton_Napoveda = new ReaLTaiizor.Controls.MaterialButton();
+            tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // label_Main
             // 
+            label_Main.Dock = DockStyle.Fill;
             label_Main.Font = new Font("Papyrus", 50F);
-            label_Main.Location = new Point(12, 37);
+            label_Main.Location = new Point(3, 0);
             label_Main.Name = "label_Main";
-            label_Main.Size = new Size(360, 89);
+            label_Main.Size = new Size(331, 110);
             label_Main.TabIndex = 0;
             label_Main.Text = "Šibenice";
-            label_Main.TextAlign = ContentAlignment.MiddleCenter;
+            label_Main.TextAlign = ContentAlignment.BottomCenter;
             // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(materialButton_Play, 0, 0);
-            tableLayoutPanel1.Controls.Add(materialButton3, 0, 2);
-            tableLayoutPanel1.Controls.Add(materialButton2, 0, 1);
-            tableLayoutPanel1.Controls.Add(materialButton1, 0, 3);
-            tableLayoutPanel1.Location = new Point(12, 129);
+            tableLayoutPanel1.Controls.Add(materialButton_Exit, 0, 2);
+            tableLayoutPanel1.Controls.Add(materialButton_Napoveda, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 110);
+            tableLayoutPanel1.Margin = new Padding(0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 4;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 25F));
-            tableLayoutPanel1.Size = new Size(360, 191);
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(337, 163);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // materialButton_Play
@@ -74,7 +77,7 @@
             materialButton_Play.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             materialButton_Play.Name = "materialButton_Play";
             materialButton_Play.NoAccentTextColor = Color.Empty;
-            materialButton_Play.Size = new Size(352, 35);
+            materialButton_Play.Size = new Size(329, 42);
             materialButton_Play.TabIndex = 5;
             materialButton_Play.Text = "Hrát";
             materialButton_Play.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -82,77 +85,72 @@
             materialButton_Play.UseVisualStyleBackColor = true;
             materialButton_Play.Click += materialButton_Play_Click;
             // 
-            // materialButton3
+            // materialButton_Exit
             // 
-            materialButton3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton3.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton3.Depth = 0;
-            materialButton3.Dock = DockStyle.Fill;
-            materialButton3.HighEmphasis = true;
-            materialButton3.Icon = null;
-            materialButton3.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton3.Location = new Point(4, 100);
-            materialButton3.Margin = new Padding(4, 6, 4, 6);
-            materialButton3.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton3.Name = "materialButton3";
-            materialButton3.NoAccentTextColor = Color.Empty;
-            materialButton3.Size = new Size(352, 35);
-            materialButton3.TabIndex = 4;
-            materialButton3.Text = "materialButton3";
-            materialButton3.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton3.UseAccentColor = false;
-            materialButton3.UseVisualStyleBackColor = true;
+            materialButton_Exit.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton_Exit.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton_Exit.Depth = 0;
+            materialButton_Exit.Dock = DockStyle.Fill;
+            materialButton_Exit.HighEmphasis = true;
+            materialButton_Exit.Icon = null;
+            materialButton_Exit.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            materialButton_Exit.Location = new Point(4, 114);
+            materialButton_Exit.Margin = new Padding(4, 6, 4, 6);
+            materialButton_Exit.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton_Exit.Name = "materialButton_Exit";
+            materialButton_Exit.NoAccentTextColor = Color.Empty;
+            materialButton_Exit.Size = new Size(329, 43);
+            materialButton_Exit.TabIndex = 4;
+            materialButton_Exit.Text = "Ukončit";
+            materialButton_Exit.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton_Exit.UseAccentColor = false;
+            materialButton_Exit.UseVisualStyleBackColor = true;
+            materialButton_Exit.Click += materialButton_Exit_Click;
             // 
-            // materialButton2
+            // materialButton_Napoveda
             // 
-            materialButton2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton2.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton2.Depth = 0;
-            materialButton2.Dock = DockStyle.Fill;
-            materialButton2.HighEmphasis = true;
-            materialButton2.Icon = null;
-            materialButton2.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton2.Location = new Point(4, 53);
-            materialButton2.Margin = new Padding(4, 6, 4, 6);
-            materialButton2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton2.Name = "materialButton2";
-            materialButton2.NoAccentTextColor = Color.Empty;
-            materialButton2.Size = new Size(352, 35);
-            materialButton2.TabIndex = 3;
-            materialButton2.Text = "materialButton2";
-            materialButton2.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton2.UseAccentColor = false;
-            materialButton2.UseVisualStyleBackColor = true;
+            materialButton_Napoveda.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            materialButton_Napoveda.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
+            materialButton_Napoveda.Depth = 0;
+            materialButton_Napoveda.Dock = DockStyle.Fill;
+            materialButton_Napoveda.HighEmphasis = true;
+            materialButton_Napoveda.Icon = null;
+            materialButton_Napoveda.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            materialButton_Napoveda.Location = new Point(4, 60);
+            materialButton_Napoveda.Margin = new Padding(4, 6, 4, 6);
+            materialButton_Napoveda.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            materialButton_Napoveda.Name = "materialButton_Napoveda";
+            materialButton_Napoveda.NoAccentTextColor = Color.Empty;
+            materialButton_Napoveda.Size = new Size(329, 42);
+            materialButton_Napoveda.TabIndex = 3;
+            materialButton_Napoveda.Text = "Nápověda";
+            materialButton_Napoveda.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            materialButton_Napoveda.UseAccentColor = false;
+            materialButton_Napoveda.UseVisualStyleBackColor = true;
+            materialButton_Napoveda.Click += materialButton_Napoveda_Click;
             // 
-            // materialButton1
+            // tableLayoutPanel2
             // 
-            materialButton1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            materialButton1.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Default;
-            materialButton1.Depth = 0;
-            materialButton1.Dock = DockStyle.Fill;
-            materialButton1.HighEmphasis = true;
-            materialButton1.Icon = null;
-            materialButton1.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            materialButton1.Location = new Point(4, 147);
-            materialButton1.Margin = new Padding(4, 6, 4, 6);
-            materialButton1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            materialButton1.Name = "materialButton1";
-            materialButton1.NoAccentTextColor = Color.Empty;
-            materialButton1.Size = new Size(352, 38);
-            materialButton1.TabIndex = 2;
-            materialButton1.Text = "materialButton1";
-            materialButton1.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            materialButton1.UseAccentColor = false;
-            materialButton1.UseVisualStyleBackColor = true;
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(label_Main, 0, 0);
+            tableLayoutPanel2.Controls.Add(tableLayoutPanel1, 0, 1);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(3, 24);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 2;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 110F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(337, 273);
+            tableLayoutPanel2.TabIndex = 2;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(400, 500);
-            Controls.Add(tableLayoutPanel1);
-            Controls.Add(label_Main);
+            ClientSize = new Size(343, 300);
+            Controls.Add(tableLayoutPanel2);
             FormStyle = ReaLTaiizor.Enum.Material.FormStyles.ActionBar_None;
             MaximizeBox = false;
             MaximumSize = new Size(1920, 1040);
@@ -162,10 +160,12 @@
             ShowIcon = false;
             Sizable = false;
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "Šibenice";
             TransparencyKey = Color.Fuchsia;
             Load += MainMenu_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -173,9 +173,9 @@
 
         private Label label_Main;
         private TableLayoutPanel tableLayoutPanel1;
-        private ReaLTaiizor.Controls.MaterialButton materialButton1;
         private ReaLTaiizor.Controls.MaterialButton materialButton_Play;
-        private ReaLTaiizor.Controls.MaterialButton materialButton3;
-        private ReaLTaiizor.Controls.MaterialButton materialButton2;
+        private ReaLTaiizor.Controls.MaterialButton materialButton_Exit;
+        private ReaLTaiizor.Controls.MaterialButton materialButton_Napoveda;
+        private TableLayoutPanel tableLayoutPanel2;
     }
 }

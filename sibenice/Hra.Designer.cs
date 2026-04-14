@@ -196,6 +196,7 @@
             materialButton_GiveUp.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             materialButton_GiveUp.UseAccentColor = false;
             materialButton_GiveUp.UseVisualStyleBackColor = true;
+            materialButton_GiveUp.Click += materialButton_GiveUp_Click;
             // 
             // materialButton_Exit
             // 

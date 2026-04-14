@@ -1,7 +1,6 @@
 
+using ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
-
-using ReaLTaiizor.Manager;
 
 namespace sibenice
 {
@@ -39,7 +38,6 @@ namespace sibenice
 
             GenerateWordLabel();
             UpdateInfo();
-            postavicka.InitParts();
         }
 
         public void ResetGame() {
@@ -47,7 +45,7 @@ namespace sibenice
         }
 
         private void FinalDialog(string title, string message) {
-            var dialog = new ReaLTaiizor.Controls.MaterialDialog(
+            MaterialDialog dialog = new ReaLTaiizor.Controls.MaterialDialog(
                 this,
                 title,
                 message,
@@ -56,6 +54,20 @@ namespace sibenice
                 "Zavøít"
             );
             dialog.ShowDialog(this);
+        }
+
+        private bool YesNoDialog(string title, string message) {
+            MaterialDialog dialog = new ReaLTaiizor.Controls.MaterialDialog(
+                this,
+                title,
+                message,
+                "Ano",
+                true,
+                "Ne"
+            );
+
+            DialogResult result = dialog.ShowDialog(this);
+            return result == DialogResult.OK;
         }
 
         public void KeyClicked(string key) {
@@ -83,10 +95,10 @@ namespace sibenice
 
             if (aktualniPokusy >= maxPokusy) {
                 FinalDialog("Prohra", $"Prohrál jsi! Slovo bylo: {hadaneSlovo}");
-                this.Close();
+                Close();
             } else if (!odhalenaPismena.Contains('_')) {
-                FinalDialog("Vyhrál jsi!", "Gratuluji, uhodl jsi slovo.");
-                this.Close();
+                FinalDialog("Vyhrál jsi!", $"Gratuluji, uhodl jsi slovo {hadaneSlovo}.");
+                Close();
             }
         }
 
@@ -109,13 +121,24 @@ namespace sibenice
         private void sibenicePanacek_Paint(object sender, PaintEventArgs e) {
             Graphics g = e.Graphics;
 
-            Point posunutiNaStred = new Point((sibenicePanacek.Width - 200) / 2, (sibenicePanacek.Height - 200) / 2);
+            Point velikost = new Point(sibenicePanacek.Width, sibenicePanacek.Height);
 
-            postavicka.Paint(g, aktualniPokusy, posunutiNaStred);
+            postavicka.Paint(g, aktualniPokusy, velikost);
+        }
+
+        private void materialButton_GiveUp_Click(object sender, EventArgs e) {
+            bool result = YesNoDialog("Vzdát se", "Opravdu se chcete vzdát?");
+            if (result) {
+                FinalDialog("Prohra", $"Vzdal jses! Slovo bylo: {hadaneSlovo}");
+                Close();
+            }
         }
 
         private void materialButton_Exit_Click(object sender, EventArgs e) {
-            this.Close();
+            bool result = YesNoDialog("Ukonèit hru", "Opravdu chcete ukonèit hru?");
+            if (result) {
+                Close();
+            }
         }
     }
 }
