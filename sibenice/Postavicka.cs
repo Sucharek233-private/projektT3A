@@ -21,9 +21,9 @@
         private void InitParts() {
             parts = new List<object> {
                 new LinePart   { Start =  new Point(10, 180),  End = new Point(100, 180) }, // základna
-                new LinePart   { Start =  new Point(55, 180),  End = new Point(55, 20) },   // sloup
-                new LinePart   { Start =  new Point(55, 20),   End = new Point(130, 20) },  // trám
-                new LinePart   { Start =  new Point(130, 20),  End = new Point(130, 50) },  // provaz
+                new LinePart   { Start =  new Point(55, 180),  End = new Point(55, 20)   }, // sloup
+                new LinePart   { Start =  new Point(55, 20),   End = new Point(130, 20)  }, // trám
+                new LinePart   { Start =  new Point(130, 20),  End = new Point(130, 50)  }, // provaz
                 new CirclePart { Center = new Point(130, 65),  Radius = 15 },               // hlava
                 new LinePart   { Start =  new Point(130, 80),  End = new Point(130, 130) }, // tělo
                 new LinePart   { Start =  new Point(130, 90),  End = new Point(110, 110) }, // levá ruka
@@ -40,9 +40,13 @@
 
             for (int i = 0; i < pokusy && i < parts.Count; i++) {
                 if (parts[i] is LinePart lp) {
-                    g.DrawLine(Pens.Black,
-                               lp.Start.X + posunutiNaStred.X, lp.Start.Y + posunutiNaStred.Y,
-                               lp.End.X + posunutiNaStred.X, lp.End.Y + posunutiNaStred.Y);
+                    g.DrawLine(
+                        Pens.Black,
+                        lp.Start.X + posunutiNaStred.X,
+                        lp.Start.Y + posunutiNaStred.Y,
+                        lp.End.X   + posunutiNaStred.X,
+                        lp.End.Y   + posunutiNaStred.Y
+                    );
                 } else if (parts[i] is CirclePart cp) {
                     g.DrawEllipse(
                         Pens.Black,

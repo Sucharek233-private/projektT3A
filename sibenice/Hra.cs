@@ -1,11 +1,10 @@
-
-using ReaLTaiizor.Controls;
+Ôªøusing ReaLTaiizor.Controls;
 using ReaLTaiizor.Forms;
 
 namespace sibenice
 {
     public partial class Hra : MaterialForm {
-        // Definice, promÏnnÈ
+        // Definice, promƒõnn√©
         private Klavesnice klavesnice;
         private Postavicka postavicka;
 
@@ -25,7 +24,7 @@ namespace sibenice
             postavicka = new Postavicka();
         }
 
-        // Funkce pro nastavenÌ slova a tÈmatu, inicializace hry
+        // Funkce pro nastaven√≠ slova a t√©matu, inicializace hry
         public void UpdateWord(string newWord, string newTema) {
             hadaneSlovo = newWord.ToUpper();
             tema = newTema;
@@ -42,11 +41,7 @@ namespace sibenice
             UpdateInfo();
         }
 
-        public void ResetGame() {
-            klavesnice.RebuildKeyboard();
-        }
-
-        // Dialogy pro konec hry a potvrzenÌ
+        // Dialogy pro konec hry a potvrzen√≠
         private void FinalDialog(string title, string message) {
             MaterialDialog dialog = new MaterialDialog(
                 this,
@@ -54,7 +49,7 @@ namespace sibenice
                 message,
                 "OK",
                 false,
-                "Zav¯Ìt"
+                "Zav√∏√≠t"
             );
             dialog.ShowDialog(this);
         }
@@ -72,7 +67,7 @@ namespace sibenice
             return result == DialogResult.OK;
         }
 
-        // HlavnÌ logika hry - zpracov·nÌ kliknutÌ na kl·vesu
+        // Hlavn√≠ logika hry - zpracov√°n√≠ kliknut√≠ na kl√°vesu
         public void KeyClicked(string key) {
             char guess = key[0];
             bool found = false;
@@ -97,15 +92,15 @@ namespace sibenice
             UpdateInfo();
 
             if (aktualniPokusy >= maxPokusy) {
-                FinalDialog("Prohra", $"Prohr·l jsi! Slovo bylo: {hadaneSlovo}");
+                FinalDialog("Prohra", $"Prohr√°l jsi! Slovo bylo: {hadaneSlovo}");
                 Close();
             } else if (!odhalenaPismena.Contains('_')) {
-                FinalDialog("Vyhr·l jsi!", $"Gratuluji, uhodl jsi slovo {hadaneSlovo}.");
+                FinalDialog("Vyhr√°l jsi!", $"Gratuluji, uhodl jsi slovo {hadaneSlovo}.");
                 Close();
             }
         }
 
-        // PomocnÈ funkce pro aktualizaci zobrazenÌ
+        // Pomocn√© funkce pro aktualizaci zobrazen√≠
         private void GenerateWordLabel() {
             hadaneSlovoLabel.Text = string.Join(" ", odhalenaPismena);
         }
@@ -113,18 +108,18 @@ namespace sibenice
         private void UpdateInfo() {
             string spatnaPismenaStr = string.Join(", ", spatnaPismena);
             informace.Text =
-                $"TÈma: {tema}\n" +
-                $"äpatn· pÌsmena: {spatnaPismenaStr}\n" +
+                $"T√©ma: {tema}\n" +
+                $"≈†patn√° p√≠smena: {spatnaPismenaStr}\n" +
                 $"Pokusy: {aktualniPokusy} / {maxPokusy}";
         }
 
-        // P¯Ìprava kl·vesnice a naËtenÌ prvnÌho slova p¯i naËtenÌ formu
+        // P≈ô√≠prava kl√°vesnice a naƒçten√≠ prvn√≠ho slova p≈ôi naƒçten√≠ formu
         private void Hra_Load(object sender, EventArgs e) {
             klavesnice.pripravitKlavesnici(this, klavesniceContainer);
             GenerateWordLabel();
         }
 
-        // VykreslenÌ postaviËky
+        // Vykreslen√≠ postaviƒçky
         private void sibenicePanacek_Paint(object sender, PaintEventArgs e) {
             Graphics g = e.Graphics;
 
@@ -133,9 +128,9 @@ namespace sibenice
             postavicka.Paint(g, aktualniPokusy, velikost);
         }
 
-        // TlaËÌtka pro vzd·nÌ se a ukonËenÌ hry
+        // Tlaƒç√≠tka pro vzd√°n√≠ se a ukonƒçen√≠ hry
         private void materialButton_GiveUp_Click(object sender, EventArgs e) {
-            bool result = YesNoDialog("Vzd·t se", "Opravdu se chcete vzd·t?");
+            bool result = YesNoDialog("Vzd√°t se", "Opravdu se chcete vzd√°t?");
             if (result) {
                 FinalDialog("Prohra", $"Vzdal jses! Slovo bylo: {hadaneSlovo}");
                 Close();
@@ -143,7 +138,7 @@ namespace sibenice
         }
 
         private void materialButton_Exit_Click(object sender, EventArgs e) {
-            bool result = YesNoDialog("UkonËit hru", "Opravdu chcete ukonËit hru?");
+            bool result = YesNoDialog("Ukonƒçit hru", "Opravdu chcete ukonƒçit hru?");
             if (result) {
                 Close();
             }
