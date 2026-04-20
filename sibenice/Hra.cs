@@ -49,7 +49,7 @@ namespace sibenice
                 message,
                 "OK",
                 false,
-                "Zavøít"
+                "Zavřít"
             );
             dialog.ShowDialog(this);
         }

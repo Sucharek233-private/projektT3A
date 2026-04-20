@@ -8,15 +8,15 @@ namespace sibenice {
         public void pripravitKlavesnici(Hra hraRef, TableLayoutPanel klavesniceContainer) {
             hra = hraRef;
             klavesnice = klavesniceContainer;
-            PostavitKlavesinici();
+            PostavitKlavesnici();
         }
 
-        private void PostavitKlavesinici() {
+        private void PostavitKlavesnici() {
             // Velikost klávesnice
             klavesnice.RowCount = 3;
             klavesnice.ColumnCount = 14;
 
-            // Vytroření sloupců a řádků
+            // Vytvoření sloupců a řádků
             klavesnice.ColumnStyles.Clear();
             float velikostSloupce = 100.0f / klavesnice.ColumnCount;
             for (int i = 0; i < klavesnice.ColumnCount; i++) {
@@ -34,13 +34,14 @@ namespace sibenice {
             }
 
             // Řádky klávesnice
-            PridatRadek("A Á B C Č D Ď E É Ě F G H I".Split(' '), 0);
-            PridatRadek("Í J K L M N Ň O Ó P Q R Ř S".Split(' '), 1);
-            PridatRadek("Š T Ť U Ú Ů V W X Y Ý Z Ž".  Split(' '), 2);
+            PridatRadekKlaves("A Á B C Č D Ď E É Ě F G H I".Split(' '), 0);
+            PridatRadekKlaves("Í J K L M N Ň O Ó P Q R Ř S".Split(' '), 1);
+            PridatRadekKlaves("Š T Ť U Ú Ů V W X Y Ý Z Ž".  Split(' '), 2);
         }
 
-        private void PridatRadek(string[] keys, int rowIndex) {
+        private void PridatRadekKlaves(string[] keys, int rowIndex) {
             int column = 0;
+
 
             foreach (string key in keys) {
                 MaterialButton btn = CreateKeyButton(key);
@@ -62,7 +63,7 @@ namespace sibenice {
 
         private void OnKeyClick(object? sender, EventArgs e) {
             if (sender is MaterialButton btn) {
-                string guess = btn.Text.ToString();
+                string guess = btn.Text;
                 btn.Enabled = false;
                 hra.KeyClicked(guess);
             }

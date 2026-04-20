@@ -1,4 +1,5 @@
-﻿using ReaLTaiizor.Forms;
+﻿using ReaLTaiizor.Controls;
+using ReaLTaiizor.Forms;
 
 namespace sibenice {
     public partial class ZvoleniTema : MaterialForm {
@@ -14,9 +15,23 @@ namespace sibenice {
             NacistTemata();
         }
 
-        private void NacistTemata() {
-            slova.LoadWords();
+        private void ZvoleniTema_Shown(object sender, EventArgs e) {
+            if (slova.errorMessage != "") {
+                MaterialDialog dialog = new MaterialDialog(
+                    this,
+                    "Chyba při načítání slov",
+                    $"{slova.errorMessage} Používá se interní wordlist.",
+                    "OK",
+                    false,
+                    "Zavřít"
+                );
+                dialog.ShowDialog(this);
 
+                slova.errorMessage = "";
+            }
+        }
+
+        private void NacistTemata() {
             temaContainer.ColumnCount = 1;
             temaContainer.RowCount = slova.temata.Count;
 
@@ -33,7 +48,7 @@ namespace sibenice {
 
             int r = 0;
             slova.temata.ForEach(tema => {
-                var btn = new ReaLTaiizor.Controls.MaterialButton {
+                var btn = new MaterialButton {
                     Text = tema,
                     Margin = new Padding(3),
                     Dock = DockStyle.Fill
@@ -43,14 +58,14 @@ namespace sibenice {
                 r++;
             });
 
-            // aktualizace velikosti okna podle poctu tlacitek
+            // Aktualizace velikosti okna podle počtu témat
             int velikostTlacitek = 40;
             int velikostOstatni = 100;
             this.ClientSize = new Size(this.ClientSize.Width, temaContainer.RowCount * velikostTlacitek + velikostOstatni);
         }
 
         private void LoadTema(object sender, EventArgs e) {
-            string tema = (sender as ReaLTaiizor.Controls.MaterialButton).Text;
+            string tema = (sender as MaterialButton).Text;
             string slovo = slova.GetWordForTema(tema);
 
             hra = new Hra();

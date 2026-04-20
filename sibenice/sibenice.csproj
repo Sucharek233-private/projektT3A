@@ -12,4 +12,10 @@
     <PackageReference Include="ReaLTaiizor" Version="3.8.1.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="wordlist.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

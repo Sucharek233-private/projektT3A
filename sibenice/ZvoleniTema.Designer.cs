@@ -47,6 +47,7 @@
             Name = "ZvoleniTema";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Témata";
+            Shown += ZvoleniTema_Shown;
             ResumeLayout(false);
         }
 
