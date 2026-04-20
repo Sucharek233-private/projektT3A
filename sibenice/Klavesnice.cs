@@ -52,7 +52,7 @@ namespace sibenice {
         }
 
         private MaterialButton CreateKeyButton(string text) {
-            var btn = new MaterialButton {
+            MaterialButton btn = new MaterialButton {
                 Text = text,
                 Margin = new Padding(2),
                 Dock = DockStyle.Fill

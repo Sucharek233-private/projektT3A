@@ -48,7 +48,7 @@ namespace sibenice {
 
             int r = 0;
             slova.temata.ForEach(tema => {
-                var btn = new MaterialButton {
+                MaterialButton btn = new MaterialButton {
                     Text = tema,
                     Margin = new Padding(3),
                     Dock = DockStyle.Fill
