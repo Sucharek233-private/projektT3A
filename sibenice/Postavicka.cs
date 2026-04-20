@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Eventing.Reader;
-
-namespace sibenice {
+﻿namespace sibenice {
     internal class Postavicka {
         public Postavicka() {
             InitParts();
@@ -8,8 +6,13 @@ namespace sibenice {
 
         const int postavickaSize = 200;
 
+        enum PartType {
+            Line,
+            Circle
+        }
+
         struct Part {
-            public char Type;
+            public PartType Type;
             public Point A;
             public Point B;
             public int Radius;
@@ -19,16 +22,16 @@ namespace sibenice {
 
         private void InitParts() {
             parts = new List<Part> {
-                new Part { Type = 'L', A = new Point(10, 180),  B = new Point(100,180) }, // základna
-                new Part { Type = 'L', A = new Point(55, 180),  B = new Point(55,20 )  }, // sloup
-                new Part { Type = 'L', A = new Point(55, 20),   B = new Point(130,20)  }, // trám
-                new Part { Type = 'L', A = new Point(130, 20),  B = new Point(130,50)  }, // provaz
-                new Part { Type = 'C', A = new Point(130, 65),  Radius = 15            }, // hlava
-                new Part { Type = 'L', A = new Point(130, 80),  B = new Point(130,130) }, // tělo
-                new Part { Type = 'L', A = new Point(130, 90),  B = new Point(110,110) }, // levá ruka
-                new Part { Type = 'L', A = new Point(130, 90),  B = new Point(150,110) }, // pravá ruka
-                new Part { Type = 'L', A = new Point(130, 130), B = new Point(110,160) }, // levá noha
-                new Part { Type = 'L', A = new Point(130, 130), B = new Point(150,160) }  // pravá noha
+                new Part { Type = PartType.Line  , A = new Point(10, 180),  B = new Point(100,180) }, // základna
+                new Part { Type = PartType.Line  , A = new Point(55, 180),  B = new Point(55,20 )  }, // sloup
+                new Part { Type = PartType.Line  , A = new Point(55, 20),   B = new Point(130,20)  }, // trám
+                new Part { Type = PartType.Line  , A = new Point(130, 20),  B = new Point(130,50)  }, // provaz
+                new Part { Type = PartType.Circle, A = new Point(130, 65),  Radius = 15            }, // hlava
+                new Part { Type = PartType.Line  , A = new Point(130, 80),  B = new Point(130,130) }, // tělo
+                new Part { Type = PartType.Line  , A = new Point(130, 90),  B = new Point(110,110) }, // levá ruka
+                new Part { Type = PartType.Line  , A = new Point(130, 90),  B = new Point(150,110) }, // pravá ruka
+                new Part { Type = PartType.Line  , A = new Point(130, 130), B = new Point(110,160) }, // levá noha
+                new Part { Type = PartType.Line  , A = new Point(130, 130), B = new Point(150,160) }  // pravá noha
             };
         }
 
@@ -39,7 +42,7 @@ namespace sibenice {
 
             for (int i = 0; i < pokusy && i < parts.Count; i++) {
                 Part p = parts[i];
-                if (p.Type == 'L') {
+                if (p.Type == PartType.Line) {
                     g.DrawLine(
                         Pens.Black,
                         p.A.X + posunutiNaStred.X,
@@ -47,7 +50,7 @@ namespace sibenice {
                         p.B.X + posunutiNaStred.X,
                         p.B.Y + posunutiNaStred.Y
                     );
-                } else {
+                } else if (p.Type == PartType.Circle) {
                     g.DrawEllipse(
                         Pens.Black,
                         p.A.X - p.Radius + posunutiNaStred.X,
