@@ -4,47 +4,47 @@ using System.Text.Json;
 namespace sibenice {
     internal class Slova {
         private Dictionary<string, List<string>> wordlist;
-        private Dictionary<string, List<string>> fallbackWordlist = new Dictionary<string, List<string>> {
+        private Dictionary<string, List<string>> fallbackWordlist = new() {
             {
             "Zvířata", 
                 new List<string> {
-                    "pes", "kočka", "kůň", "tygr", "slon"
+                    "nosorožec", "orangutan", "chameleon", "antilopa", "lenochod"
                 }
             },
             {
             "Města",
                 new List<string> {
-                "praha", "brno", "ostrava", "plzeň"
+                    "bratislava", "třebíč", "chomutov", "karviná", "liberec"
                 }
             },
             {
             "Jídlo",
                 new List<string> {
-                    "pizza", "sýr", "guláš", "řízek"
+                    "svíčková", "bramborák", "palačinka", "čokoláda", "lasagne"
                 }
             },
             {
             "Filmy",
                 new List<string> {
-                    "matrix", "terminátor", "titanic", "shrek"
+                    "interstellar", "gladiátor", "terminátor", "predátor", "avatar"
                 }
             },
             {
             "Povolání",
                 new List<string> {
-                    "lékař", "učitel", "programátor", "hasič"
+                    "programátor", "elektrikář", "mechanik", "architekt", "psycholog"
                 }
             },
             {
             "Příroda",
                 new List<string> {
-                    "strom", "řeka", "hora", "les"
+                    "vodopád", "pobřeží", "zemětřesení", "vichřice", "prales"
                 }
             },
             {
             "Sporty",
                 new List<string> {
-                    "fotbal", "hokej", "tenis", "plavání"
+                    "rychlobruslení", "gymnastika", "lukostřelba", "cyklistika", "plavání"
                 }
             }
         };
@@ -78,7 +78,7 @@ namespace sibenice {
 
         public string GetWordForTema(string tema) {
             var words = wordlist[tema];
-            var rnd = new Random();
+            Random rnd = new();
             return words[rnd.Next(words.Count)];
         }
     }

@@ -15,7 +15,9 @@ namespace sibenice
         private int aktualniPokusy = 0;
 
         private char[] odhalenaPismena;
-        private List<char> spatnaPismena = new List<char>();
+        private List<char> spatnaPismena = [];
+
+        private bool dialogZavreniZobrazen = false;
 
         public Hra() {
             InitializeComponent();
@@ -93,9 +95,11 @@ namespace sibenice
 
             if (aktualniPokusy >= maxPokusy) {
                 FinalDialog("Prohra", $"Prohrál jsi! Slovo bylo: {hadaneSlovo}");
+                dialogZavreniZobrazen = true;
                 Close();
             } else if (!odhalenaPismena.Contains('_')) {
                 FinalDialog("Vyhrál jsi!", $"Gratuluji, uhodl jsi slovo {hadaneSlovo}.");
+                dialogZavreniZobrazen = true;
                 Close();
             }
         }
@@ -133,6 +137,7 @@ namespace sibenice
             bool result = YesNoDialog("Vzdát se", "Opravdu se chcete vzdát?");
             if (result) {
                 FinalDialog("Prohra", $"Vzdal jses! Slovo bylo: {hadaneSlovo}");
+                dialogZavreniZobrazen = true;
                 Close();
             }
         }
@@ -140,7 +145,18 @@ namespace sibenice
         private void materialButton_Exit_Click(object sender, EventArgs e) {
             bool result = YesNoDialog("Ukončit hru", "Opravdu chcete ukončit hru?");
             if (result) {
+                dialogZavreniZobrazen = true;
                 Close();
+            }
+        }
+
+        private void Hra_FormClosing(object sender, FormClosingEventArgs e) {
+            if (dialogZavreniZobrazen)
+                return;
+
+            bool result = YesNoDialog("Ukončit hru", "Opravdu chcete ukončit hru?");
+            if (!result) {
+                e.Cancel = true;
             }
         }
     }
