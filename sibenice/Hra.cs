@@ -54,6 +54,8 @@ namespace sibenice
                 "Zavřít"
             );
             dialog.ShowDialog(this);
+            // Vždy po zobrazení tohoto dialogu se hra zavírá, nastavíme proměnnou, která zabrání zobrazení dalšího dialogu při zavírání formu
+            dialogZavreniZobrazen = true;
         }
 
         private bool YesNoDialog(string title, string message) {
@@ -95,11 +97,9 @@ namespace sibenice
 
             if (aktualniPokusy >= maxPokusy) {
                 FinalDialog("Prohra", $"Prohrál jsi! Slovo bylo: {hadaneSlovo}");
-                dialogZavreniZobrazen = true;
                 Close();
             } else if (!odhalenaPismena.Contains('_')) {
                 FinalDialog("Vyhrál jsi!", $"Gratuluji, uhodl jsi slovo {hadaneSlovo}.");
-                dialogZavreniZobrazen = true;
                 Close();
             }
         }
@@ -137,7 +137,6 @@ namespace sibenice
             bool result = YesNoDialog("Vzdát se", "Opravdu se chcete vzdát?");
             if (result) {
                 FinalDialog("Prohra", $"Vzdal jses! Slovo bylo: {hadaneSlovo}");
-                dialogZavreniZobrazen = true;
                 Close();
             }
         }
