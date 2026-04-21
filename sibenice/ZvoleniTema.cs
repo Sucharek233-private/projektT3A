@@ -17,7 +17,7 @@ namespace sibenice {
 
         private void ZvoleniTema_Shown(object sender, EventArgs e) {
             if (slova.errorMessage != "") {
-                MaterialDialog dialog = new MaterialDialog(
+                MaterialDialog dialog = new(
                     this,
                     "Chyba při načítání slov",
                     $"{slova.errorMessage} Používá se interní wordlist.",
@@ -48,7 +48,7 @@ namespace sibenice {
 
             int r = 0;
             slova.temata.ForEach(tema => {
-                MaterialButton btn = new MaterialButton {
+                MaterialButton btn = new() {
                     Text = tema,
                     Margin = new Padding(3),
                     Dock = DockStyle.Fill

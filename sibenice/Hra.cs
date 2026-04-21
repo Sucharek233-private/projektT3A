@@ -45,7 +45,7 @@ namespace sibenice
 
         // Dialogy pro konec hry a potvrzení
         private void FinalDialog(string title, string message) {
-            MaterialDialog dialog = new MaterialDialog(
+            MaterialDialog dialog = new(
                 this,
                 title,
                 message,
@@ -59,7 +59,7 @@ namespace sibenice
         }
 
         private bool YesNoDialog(string title, string message) {
-            MaterialDialog dialog = new MaterialDialog(
+            MaterialDialog dialog = new(
                 this,
                 title,
                 message,
@@ -127,7 +127,7 @@ namespace sibenice
         private void sibenicePanacek_Paint(object sender, PaintEventArgs e) {
             Graphics g = e.Graphics;
 
-            Point velikost = new Point(sibenicePanacek.Width, sibenicePanacek.Height);
+            Point velikost = new(sibenicePanacek.Width, sibenicePanacek.Height);
 
             postavicka.Paint(g, aktualniPokusy, velikost);
         }

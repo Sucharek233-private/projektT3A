@@ -21,24 +21,24 @@
         private List<Part> parts;
 
         private void InitParts() {
-            parts = new List<Part> {
-                new Part { Type = PartType.Line  , A = new Point(10, 180),  B = new Point(100,180) }, // základna
-                new Part { Type = PartType.Line  , A = new Point(55, 180),  B = new Point(55,20 )  }, // sloup
-                new Part { Type = PartType.Line  , A = new Point(55, 20),   B = new Point(130,20)  }, // trám
-                new Part { Type = PartType.Line  , A = new Point(130, 20),  B = new Point(130,50)  }, // provaz
-                new Part { Type = PartType.Circle, A = new Point(130, 65),  Radius = 15            }, // hlava
-                new Part { Type = PartType.Line  , A = new Point(130, 80),  B = new Point(130,130) }, // tělo
-                new Part { Type = PartType.Line  , A = new Point(130, 90),  B = new Point(110,110) }, // levá ruka
-                new Part { Type = PartType.Line  , A = new Point(130, 90),  B = new Point(150,110) }, // pravá ruka
-                new Part { Type = PartType.Line  , A = new Point(130, 130), B = new Point(110,160) }, // levá noha
-                new Part { Type = PartType.Line  , A = new Point(130, 130), B = new Point(150,160) }  // pravá noha
-            };
+            parts = [
+                new() { Type = PartType.Line  , A = new Point(10, 180),  B = new Point(100,180) }, // základna
+                new() { Type = PartType.Line  , A = new Point(55, 180),  B = new Point(55,20 )  }, // sloup
+                new() { Type = PartType.Line  , A = new Point(55, 20),   B = new Point(130,20)  }, // trám
+                new() { Type = PartType.Line  , A = new Point(130, 20),  B = new Point(130,50)  }, // provaz
+                new() { Type = PartType.Circle, A = new Point(130, 65),  Radius = 15            }, // hlava
+                new() { Type = PartType.Line  , A = new Point(130, 80),  B = new Point(130,130) }, // tělo
+                new() { Type = PartType.Line  , A = new Point(130, 90),  B = new Point(110,110) }, // levá ruka
+                new() { Type = PartType.Line  , A = new Point(130, 90),  B = new Point(150,110) }, // pravá ruka
+                new() { Type = PartType.Line  , A = new Point(130, 130), B = new Point(110,160) }, // levá noha
+                new() { Type = PartType.Line  , A = new Point(130, 130), B = new Point(150,160) }  // pravá noha
+            ];
         }
 
         public void Paint(Graphics g, int pokusy, Point velikost) {
             g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-            Point posunutiNaStred = new Point((velikost.X - postavickaSize) / 2, (velikost.Y - postavickaSize) / 2);
+            Point posunutiNaStred = new((velikost.X - postavickaSize) / 2, (velikost.Y - postavickaSize) / 2);
 
             for (int i = 0; i < pokusy && i < parts.Count; i++) {
                 Part p = parts[i];

@@ -13,8 +13,9 @@ namespace sibenice {
 
             postavicka = new Postavicka();
 
-            animTimer = new System.Windows.Forms.Timer();
-            animTimer.Interval = 1000; // 1 s
+            animTimer = new System.Windows.Forms.Timer {
+                Interval = 1000 // 1 s
+            };
             animTimer.Tick += AnimTimer_Tick;
             animTimer.Start();
         }
@@ -30,7 +31,7 @@ namespace sibenice {
 
         private void materialCard_Postavicka_Paint(object sender, PaintEventArgs e) {
             Graphics g = e.Graphics;
-            Point velikost = new Point(materialCard_Postavicka.Width, materialCard_Postavicka.Height);
+            Point velikost = new(materialCard_Postavicka.Width, materialCard_Postavicka.Height);
             postavicka.Paint(g, pokusy, velikost);
         }
 
