@@ -119,7 +119,7 @@ namespace sibenice
 
         // Příprava klávesnice a načtení prvního slova při načtení formu
         private void Hra_Load(object sender, EventArgs e) {
-            klavesnice.pripravitKlavesnici(this, klavesniceContainer);
+            klavesnice.PripravitKlavesnici(this, klavesniceContainer);
             GenerateWordLabel();
         }
 

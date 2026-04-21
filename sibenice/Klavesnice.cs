@@ -5,7 +5,7 @@ namespace sibenice {
         private TableLayoutPanel klavesnice;
         private Hra hra;
 
-        public void pripravitKlavesnici(Hra hraRef, TableLayoutPanel klavesniceContainer) {
+        public void PripravitKlavesnici(Hra hraRef, TableLayoutPanel klavesniceContainer) {
             hra = hraRef;
             klavesnice = klavesniceContainer;
             PostavitKlavesnici();
@@ -57,7 +57,7 @@ namespace sibenice {
                 Margin = new Padding(2),
                 Dock = DockStyle.Fill
             };
-            
+
             return btn;
         }
 
