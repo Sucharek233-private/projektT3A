@@ -18,18 +18,16 @@ namespace sibenice {
 
             // Vytvoření sloupců a řádků
             klavesnice.ColumnStyles.Clear();
-            float velikostSloupce = 100.0f / klavesnice.ColumnCount;
             for (int i = 0; i < klavesnice.ColumnCount; i++) {
                 klavesnice.ColumnStyles.Add(
-                    new ColumnStyle(SizeType.Percent, velikostSloupce)
+                    new ColumnStyle(SizeType.Percent, 100f)
                 );
             }
 
             klavesnice.RowStyles.Clear();
-            float velikostRadku = 100.0f / klavesnice.RowCount;
             for (int i = 0; i < klavesnice.RowCount; i++) {
                 klavesnice.RowStyles.Add(
-                    new RowStyle(SizeType.Percent, velikostRadku)
+                    new RowStyle(SizeType.Percent, 100f)
                 );
             }
 

@@ -15,7 +15,7 @@ namespace sibenice
         private int aktualniPokusy = 0;
 
         private char[] odhalenaPismena;
-        private List<char> spatnaPismena = [];
+        private List<char> spatnaPismena = new List<char>();
 
         private bool dialogZavreniZobrazen = false;
 
@@ -31,10 +31,6 @@ namespace sibenice
             hadaneSlovo = newWord.ToUpper();
             tema = newTema;
 
-            InitGame();
-        }
-
-        public void InitGame() {
             odhalenaPismena = new string('_', hadaneSlovo.Length).ToCharArray();
             spatnaPismena.Clear();
             aktualniPokusy = 0;
