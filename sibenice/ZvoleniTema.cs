@@ -42,10 +42,8 @@ namespace sibenice {
                 // Roztažení řádků na celou šířku
                 temaContainer.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
 
-            int r = 0;
-            slova.temata.ForEach(tema => {
-                MaterialButton btn = new MaterialButton {
-                    Text = tema,
+                MaterialButton btn = new() {
+                    Text = slova.temata[i],
                     Margin = new Padding(3),
                     Dock = DockStyle.Fill
                 };

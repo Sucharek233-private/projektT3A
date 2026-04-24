@@ -15,7 +15,7 @@ namespace sibenice
         private int aktualniPokusy = 0;
 
         private char[] odhalenaPismena;
-        private List<char> spatnaPismena = new List<char>();
+        private List<char> spatnaPismena = [];
 
         private bool dialogZavreniZobrazen = false;
 
