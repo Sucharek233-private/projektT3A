@@ -231,7 +231,6 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Šibenice";
             FormClosing += Hra_FormClosing;
-            Load += Hra_Load;
             tableLayoutPanel2.ResumeLayout(false);
             materialCard1.ResumeLayout(false);
             sibeniceInfo.ResumeLayout(false);

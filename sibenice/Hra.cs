@@ -22,7 +22,7 @@ namespace sibenice
         public Hra() {
             InitializeComponent();
 
-            klavesnice = new Klavesnice();
+            klavesnice = new Klavesnice(this, klavesniceContainer);
             postavicka = new Postavicka();
         }
 
@@ -35,8 +35,8 @@ namespace sibenice
             spatnaPismena.Clear();
             aktualniPokusy = 0;
 
-            GenerateWordLabel();
-            UpdateInfo();
+            AktualizovatLabelHadaneSlovo();
+            AktualizovatInfo();
         }
 
         // Dialogy pro konec hry a potvrzení
@@ -45,12 +45,10 @@ namespace sibenice
                 this,
                 title,
                 message,
-                "OK",
-                false,
-                "Zavřít"
+                "OK"
             );
             dialog.ShowDialog(this);
-            // Vždy po zobrazení tohoto dialogu se hra zavírá, nastavíme proměnnou, která zabrání zobrazení dalšího dialogu při zavírání formu
+            // Vždy po zobrazení tohoto dialogu se hra zavírá
             dialogZavreniZobrazen = true;
         }
 
@@ -80,7 +78,7 @@ namespace sibenice
             }
 
             if (found) {
-                GenerateWordLabel();
+                AktualizovatLabelHadaneSlovo();
             } else {
                 if (!spatnaPismena.Contains(guess)) {
                     spatnaPismena.Add(guess);
@@ -89,7 +87,7 @@ namespace sibenice
                 }
             }
 
-            UpdateInfo();
+            AktualizovatInfo();
 
             if (aktualniPokusy >= maxPokusy) {
                 FinalDialog("Prohra", $"Prohrál jsi! Slovo bylo: {hadaneSlovo}");
@@ -101,22 +99,16 @@ namespace sibenice
         }
 
         // Pomocné funkce pro aktualizaci zobrazení
-        private void GenerateWordLabel() {
+        private void AktualizovatLabelHadaneSlovo() {
             hadaneSlovoLabel.Text = string.Join(" ", odhalenaPismena);
         }
 
-        private void UpdateInfo() {
+        private void AktualizovatInfo() {
             string spatnaPismenaStr = string.Join(", ", spatnaPismena);
             informace.Text =
                 $"Téma: {tema}\n" +
                 $"Špatná písmena: {spatnaPismenaStr}\n" +
-                $"Pokusy: {aktualniPokusy} / {maxPokusy}";
-        }
-
-        // Příprava klávesnice a načtení prvního slova při načtení formu
-        private void Hra_Load(object sender, EventArgs e) {
-            klavesnice.PripravitKlavesnici(this, klavesniceContainer);
-            GenerateWordLabel();
+                $"Špatné pokusy: {aktualniPokusy} / {maxPokusy}";
         }
 
         // Vykreslení postavičky

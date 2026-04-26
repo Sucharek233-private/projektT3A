@@ -12,7 +12,7 @@ namespace sibenice
         [STAThread]
         static void Main()
         {
-            // Nastavení barev motivu
+            // Nastavení barevného schématu aplikace
             MaterialSkinManager material = MaterialSkinManager.Instance;
             material.Theme = MaterialSkinManager.Themes.LIGHT;
             material.ColorScheme = new MaterialColorScheme(

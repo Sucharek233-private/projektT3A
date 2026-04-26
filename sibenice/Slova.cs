@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Media;
+using System.Text;
 using System.Text.Json;
 
 namespace sibenice {
@@ -52,6 +53,8 @@ namespace sibenice {
         public List<string> temata;
         public string errorMessage = "";
 
+        Random rnd = new();
+
         public Slova() {
             wordlist = LoadWordlist();
             temata = wordlist.Keys.ToList();
@@ -63,11 +66,25 @@ namespace sibenice {
                     string sWordlist = File.ReadAllText("wordlist.json", Encoding.UTF8);
                     var data = JsonSerializer.Deserialize<Dictionary<string, List<string>>>(sWordlist);
 
-                    if (data != null && data.Count > 0)
-                        return data;
+                    // Kontrola, zda načtený wordlist není prázdný a neobsahuje pouze prázdná témata
+                    if (data != null && data.Count > 0) {
+                        Dictionary<string, List<string>> validWordlist = new();
+                        foreach (KeyValuePair<string, List<string>> kvp in data) {
+                            if (kvp.Value != null && kvp.Value.Count > 0) {
+                                validWordlist[kvp.Key] = kvp.Value;
+                            }
+                        }
+                        if (validWordlist.Count == 0) {
+                            errorMessage = "Všechny témata jsou prázdná.";
+                            return fallbackWordlist;
+                        }
+                        return validWordlist;
+                    }
 
                     errorMessage = "Soubor wordlist.json je prázdný nebo neplatný.";
+                    return fallbackWordlist;
                 }
+
                 errorMessage = "Soubor wordlist.json nebyl nalezen.";
             } catch {
                 errorMessage = "Chyba při parsování wordlist.json.";
@@ -77,9 +94,9 @@ namespace sibenice {
         }
 
         public string GetWordForTema(string tema) {
-            var words = wordlist[tema];
-            Random rnd = new();
-            return words[rnd.Next(words.Count)];
+            List<string> words = wordlist[tema];
+            string word = words[rnd.Next(words.Count)];
+            return word;
         }
     }
 }

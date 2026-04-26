@@ -1,11 +1,12 @@
 ﻿using ReaLTaiizor.Controls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace sibenice {
     internal class Klavesnice {
         private TableLayoutPanel klavesnice;
         private Hra hra;
 
-        public void PripravitKlavesnici(Hra hraRef, TableLayoutPanel klavesniceContainer) {
+        public Klavesnice(Hra hraRef, TableLayoutPanel klavesniceContainer) {
             hra = hraRef;
             klavesnice = klavesniceContainer;
             PostavitKlavesnici();
@@ -34,29 +35,22 @@ namespace sibenice {
             // Řádky klávesnice
             PridatRadekKlaves("A Á B C Č D Ď E É Ě F G H I".Split(' '), 0);
             PridatRadekKlaves("Í J K L M N Ň O Ó P Q R Ř S".Split(' '), 1);
-            PridatRadekKlaves("Š T Ť U Ú Ů V W X Y Ý Z Ž".  Split(' '), 2);
+            PridatRadekKlaves("Š T Ť U Ú Ů V W X Y Ý Z Ž"  .Split(' '), 2);
         }
 
         private void PridatRadekKlaves(string[] keys, int rowIndex) {
-            int column = 0;
+            for (int column = 0; column < keys.Length; column++) {
+                string key = keys[column];
 
+                MaterialButton btn = new() {
+                    Text = key,
+                    Margin = new Padding(2),
+                    Dock = DockStyle.Fill
+                };
 
-            foreach (string key in keys) {
-                MaterialButton btn = CreateKeyButton(key);
                 btn.Click += OnKeyClick;
                 klavesnice.Controls.Add(btn, column, rowIndex);
-                column++;
             }
-        }
-
-        private MaterialButton CreateKeyButton(string text) {
-            MaterialButton btn = new() {
-                Text = text,
-                Margin = new Padding(2),
-                Dock = DockStyle.Fill
-            };
-
-            return btn;
         }
 
         private void OnKeyClick(object? sender, EventArgs e) {
